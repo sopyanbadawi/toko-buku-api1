@@ -12,7 +12,11 @@ func SetupRouter() *gin.Engine {
 	api := r.Group("/api")
 	{
 		api.GET("/books", controllers.GetBooks)
+		api.GET("/books/:id", controllers.GetBookById)
 		api.POST("/books", controllers.CreateBooks)
+		api.PUT("/books/:id", controllers.UpdateBook)
+		api.DELETE("/books/:id", controllers.DeleteBook)
+
 	}
 
 	return r
